@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试单链表</title>
+</head>
+<body>
+<input type="text" id="new-node">
+<input type="button" onclick="addNode()" value="添加节点">
+<script type="text/javascript" src="single-linkList.js"></script>
+<script>
+function addNode() {
+    var newNode = new Array("1","2","3");
+    var linkList = new linkedList();
+    linkList.create(newNode);
+    linkList.show();
+    linkList.insertAfter("4","3");
+    linkList.show();
+}
+</script>
+</body>
+</html>
