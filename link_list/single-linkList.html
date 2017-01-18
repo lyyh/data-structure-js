@@ -5,18 +5,24 @@
     <title>测试单链表</title>
 </head>
 <body>
-<input type="text" id="new-node">
-<input type="button" onclick="addNode()" value="添加节点">
 <script type="text/javascript" src="single-linkList.js"></script>
 <script>
-function addNode() {
-    var newNode = new Array("1","2","3");
-    var linkList = new linkedList();
-    linkList.create(newNode);
-    linkList.show();
-    linkList.insertAfter("4","3");
-    linkList.show();
-}
+var newNode = new Array("1", "2", "3");
+console.log('原链表结构:',1,2,3)
+var linkList = new linkedList();
+linkList.create(newNode);
+console.log('在3后面插入4')
+linkList.insertAfter("4", "3"); //在3后面插入4
+linkList.show();
+console.log('在1前面插入0')
+linkList.insertBefore("0", "1"); //在1前面插入0
+linkList.show();
+console.log('在4前面插入5')
+linkList.insertBefore("5", "4"); //在4前面插入5
+linkList.show();
+console.log('删除5')
+linkList.delete("5"); //删除5
+linkList.show();
 </script>
 </body>
 </html>

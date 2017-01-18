@@ -4,9 +4,9 @@
 var element = [5, 2, 1, 4, 0];
 var n = element.length;
 //冒泡排序
-function bubbleSort(element, n) {
-    for (var i = 0; i < n - 1; i++) {
-        for (var j = 0; j < n - i - 1; j++) {
+function bubbleSort(element) {
+    for (var i = 0; i < element.length - 1; i++) {
+        for (var j = 0; j < element.length - i - 1; j++) {
             if (element[j] > element[j + 1]) {
                 var temp = element[j];
                 element[j] = element[j + 1];
@@ -15,7 +15,6 @@ function bubbleSort(element, n) {
         }
     }
     console.log(element);
-
 }
 //起泡排序
 function blisterSort(element) {

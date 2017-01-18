@@ -45,7 +45,7 @@ linkedList.prototype.create = function (element) {
  */
 linkedList.prototype.show = function () {
     var res = [], p = this.head;
-    console.log("单链表:");
+    // console.log("单链表结构:");
     while (p != null) {
         res[res.length] = p.data;
         p = p.next;
@@ -148,15 +148,3 @@ linkedList.prototype.delete = function (element) {
         prev.next = cur.next;
     }
 }
-var newNode = new Array("1", "2", "3");
-var linkList = new linkedList();
-linkList.create(newNode);
-linkList.show();
-linkList.insertAfter("4", "3");
-linkList.show();
-linkList.insertBefore("0", "1");
-linkList.show();
-linkList.insertBefore("5", "4");
-linkList.show();
-linkList.delete("5");
-linkList.show();
