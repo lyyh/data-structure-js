@@ -4,6 +4,7 @@ var n = element.length;
 function compare(value1, value2) {
     return value1 - value2;
 }
+
 function ownSort(element) {
     element.sort(compare);
     console.log(element)
@@ -23,7 +24,7 @@ function bubbleSort(element) {
             }
         }
     }
-    console.log(element); 
+    console.log(element);
     console.log('冒泡排序花费时间:')
     console.timeEnd();
 }
@@ -34,7 +35,7 @@ function insertSort(element) {
     var len = element.length;
     for (var i = 1; i < len; i++) {
         var tmp = element[i];
-        for (var j = i - 1; tmp < element[j]; j--){
+        for (var j = i - 1; tmp < element[j]; j--) {
             element[j + 1] = element[j];
         }
         element[j + 1] = tmp;
@@ -53,7 +54,7 @@ function shellSort(element) {
         d = parseInt(d);
         for (var i = d; i < n; i++) {
             tmp = element[i];
-            for (var j = i - d; j >= 0 && tmp < element[j]; j = j - d){
+            for (var j = i - d; j >= 0 && tmp < element[j]; j = j - d) {
                 element[j + d] = element[j];
             }
             element[j + d] = tmp;
@@ -88,38 +89,39 @@ function blisterSort(element) {
 //简单选择排序
 function selectSort(element) {
     console.time();
-    var index;
-    for (var i = 0; i < n; i++) {
-        index = i;
-        for (var j = i + 1; j < n; j++) {
-            if (element[index] > element[j]) {
+    var min = null,
+        temp, index = 1;
+    for (var i = 0; i < element.length; i++) {
+        min = element[i];
+        for (var j = i + 1; j < element.length; j++) {
+            if (element[j] < min) {
+                min = element[j];
                 index = j;
             }
         }
-        if (index != i) {
-            var tmp = element[i];
-            element[i] = element[index];
-            element[index] = tmp;
-        }
+        temp = element[i];
+        element[i] = min;
+        element[index] = temp;
     }
-    console.log(element)
-    console.log('选择排序花费时间:')
+    console.log(element);
+    console.log('选择排序花费时间:');
     console.timeEnd();
 }
 
 //快速排序(划分)
 function partition(element, first, end) {
-    var i = first, j = end;
+    var i = first,
+        j = end;
     var tmp;
     while (i < j) {
-        while (i < j && element[i] <= element[j])j--;
+        while (i < j && element[i] <= element[j]) j--;
         if (i < j) {
             tmp = element[i];
             element[i] = element[j];
             element[j] = tmp;
             i++;
         }
-        while (i < j && element[i] <= element[j])i++;
+        while (i < j && element[i] <= element[j]) i++;
         if (i < j) {
             tmp = element[i];
             element[i] = element[j];
@@ -130,23 +132,25 @@ function partition(element, first, end) {
 }
 
 //快速排序
-function quickSortHandle(arr) {
-　　if (arr.length <= 1) { return arr; }
-　　var pivotIndex = Math.floor(arr.length / 2);
-　　var pivot = arr.splice(pivotIndex, 1)[0];
-　　var left = [];
-　　var right = [];
-　　for (var i = 0; i < arr.length; i++){
-　　　　if (arr[i] < pivot) {
-　　　　　　left.push(arr[i]);
-　　　　} else {
-　　　　　　right.push(arr[i]);
-　　　　}
-　　}
-　　return quickSortHandle(left).concat([pivot], quickSortHandle(right));
+function quickSortHandle(arr) {　　
+    if (arr.length <= 1) {
+        return arr;
+    }　　
+    var pivotIndex = Math.floor(arr.length / 2);　　
+    var pivot = arr.splice(pivotIndex, 1)[0];　　
+    var left = [];　　
+    var right = [];　　
+    for (var i = 0; i < arr.length; i++) {　　　　
+        if (arr[i] < pivot) {　　　　　　
+            left.push(arr[i]);　　　　
+        } else {　　　　　　
+            right.push(arr[i]);　　　　
+        }　　
+    }　　
+    return quickSortHandle(left).concat([pivot], quickSortHandle(right));
 };
 
-function quickSort(element){
+function quickSort(element) {
     console.time();
     console.log(quickSortHandle(element));
     console.log('快速排序花费时间:')
