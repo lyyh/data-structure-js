@@ -1,4 +1,4 @@
-var str = 'abbcbbasdf';
+var str = 'aaabaaaabba';
 
 /**
  * @param  {string}
@@ -14,7 +14,6 @@ function violenceMethod(params) {
         for (var last = len; last > first + 1; last--) {
             var str = params.substring(first, last);
             if (str == str.split('').reverse().join('')) {
-            	console.log(str)
                 maxLenght = Math.max(maxLenght, str.length);
             }
         }
@@ -24,4 +23,3 @@ function violenceMethod(params) {
 }
 
 console.log(violenceMethod(str))
-
