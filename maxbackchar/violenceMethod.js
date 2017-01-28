@@ -6,20 +6,23 @@ var str = 'aaabaaaabba';
  * 暴力查找，使用两层循环，外两层循环查找所有子串，再判断回文串
  */
 function violenceMethod(params) {
-    var first = 0,
-        array = params.split(''),
-        len = params.length,
+    var len = params.length,
+        longest = '',
         maxLenght = 0;
-    while (len - 1 - first > 0) {
+        
+    for (var first = 0; len - 1 - first > 0; first++) {
         for (var last = len; last > first + 1; last--) {
             var str = params.substring(first, last);
             if (str == str.split('').reverse().join('')) {
-                maxLenght = Math.max(maxLenght, str.length);
+                if (str.length > maxLenght) {
+                    maxLenght = str.length;
+                    longest = str;
+                }
             }
         }
-        first++;
     }
-    return maxLenght;
+
+    return longest;
 }
 
-console.log(violenceMethod(str))
+console.log('最长回文子串 ' + violenceMethod(str));
