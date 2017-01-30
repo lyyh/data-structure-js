@@ -1,3 +1,4 @@
 # 忽略文件
 .DS_store
 test/
+node_modules/

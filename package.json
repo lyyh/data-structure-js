@@ -1,0 +1,26 @@
+{
+  "name": "data_structure_js",
+  "version": "1.0.0",
+  "description": "起泡、冒泡、插入、希尔、选择、快速 ## 单链表 ## 堆栈操作",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyyh/data-structure-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyyh/data-structure-js/issues"
+  },
+  "homepage": "https://github.com/lyyh/data-structure-js#readme",
+  "devDependencies": {
+    "readline": "^1.3.0"
+  }
+}
