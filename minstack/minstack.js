@@ -29,6 +29,7 @@ function minStack(arr) {
     function getMin() {
         return Math.min(...minStack)
     }
+    
     for (var i = 0; i < arr.length; i++) {
         push(arr[i]);
     }
