@@ -1,5 +1,5 @@
 /**
- * 使用递归遍历 中序遍历完全二叉树
+ * 递归 前序遍历完全二叉树
  */
 function Tree(left, label, right) {
     this.left = left;
@@ -9,8 +9,8 @@ function Tree(left, label, right) {
 
 function inorder(t) {
     if (t) {
-        inorder(t.left);
         resultArray.push(t.label);
+        inorder(t.left);
         inorder(t.right);
     }
 }
@@ -33,7 +33,7 @@ inorder(tree);
 console.log(resultArray)
 
 /**
- * 使用yield* 中序遍历完全二叉树
+ * 使用yield* 实现前序遍历完全二叉树
  */
 function Tree(left, label, right) {
     this.left = left;
@@ -43,8 +43,8 @@ function Tree(left, label, right) {
 
 function* inorder(t) {
     if (t) {
-        yield * inorder(t.left);
         yield t.label;
+        yield * inorder(t.left);
         yield * inorder(t.right);
     }
 }
@@ -61,8 +61,9 @@ var tree = make([
         ['e'], 'f', ['g']
     ]
 ]);
-var array = []
-for (var node of inorder(tree)) {
+
+var array = [];
+for (let node of inorder(tree)) {
     array.push(node);
 }
 console.log(array)
